@@ -1,5 +1,4 @@
 import { OAuthProvider } from "@interep/reputation"
-import getNextConfig from "next/config"
 import { Provider } from "./types/groups"
 import { NetworkData } from "./types/network"
 
@@ -58,7 +57,7 @@ export const contractAddresses: Record<SupportedChainId, Record<ContractName, an
         [ContractName.INTEREP]: "0xa2A7f256B4Ea653eef95965D09bbdBb4b4526419"
     },
     [SupportedChainId.OPTIMISM]: {
-      [ContractName.INTEREP]: "0xb64C152464B1d4fAE124C6544fad483858480f67"
+      [ContractName.INTEREP]: "0x7336689C328Ca253FA93D7B1d682635338301233"
     }
 }
 
@@ -90,27 +89,7 @@ export const supportedNetworks: Record<string, NetworkData> = {
 }
 
 export const currentNetwork: NetworkData = (function IIFE(): NetworkData {
-    switch (process.env.NODE_ENV as Environment) {
-        case Environment.PRODUCTION: {
-            const nextConfig = getNextConfig()
-            let defaultNetwork
-
-            if (nextConfig) {
-                defaultNetwork = getNextConfig().publicRuntimeConfig.defaultNetwork
-            } else {
-                // nextConfig is undefined when this file is imported from an external resource to nextJS.
-                defaultNetwork = process.env.DEFAULT_NETWORK
-            }
-
-            if (!(defaultNetwork in supportedNetworks)) {
-                throw new Error("DEFAULT_NETWORK variable has not been defined correctly")
-            }
-
-            return supportedNetworks[defaultNetwork]
-        }
-        default:
-            return supportedNetworks.optimism
-    }
+  return supportedNetworks.optimism
 })()
 
 export default {
