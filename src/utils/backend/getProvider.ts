@@ -14,6 +14,10 @@ export default function getProvider(network: NetworkData = currentNetwork): prov
             url = "https://arb1.arbitrum.io/rpc"
             break
         default:
+            if (process.env.ETH_API_URL) {
+              url = process.env.ETH_API_URL
+              break
+            }
             if (!process.env.INFURA_API_KEY) {
                 throw new Error("Please set your INFURA_API_KEY in a .env file")
             }

@@ -37,7 +37,7 @@
         "@fontsource/inter": "^4.5.5",
         "@interep/db": "^0.3.1",
         "@interep/identity": "0.2.0",
-        "@interep/reputation": "0.4.0",
+        "@interep/reputation": "https://gitpkg.now.sh/vimwitch/interep.js/packages/reputation?661291c854b5ade5e9d01280da40322d99f606b5",
         "@interep/telegram-bot": "0.2.0",
         "@metamask/detect-provider": "^1.2.0",
         "@sentry/nextjs": "^6.16.1",

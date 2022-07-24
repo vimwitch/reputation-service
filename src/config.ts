@@ -40,7 +40,8 @@ export enum SupportedChainId {
     LOCALHOST = 31337,
     GOERLI = 5,
     KOVAN = 42,
-    ARBITRUM = 42161
+    ARBITRUM = 42161,
+    OPTIMISM = 420
 }
 
 export const contractAddresses: Record<SupportedChainId, Record<ContractName, any>> = {
@@ -55,6 +56,9 @@ export const contractAddresses: Record<SupportedChainId, Record<ContractName, an
     },
     [SupportedChainId.ARBITRUM]: {
         [ContractName.INTEREP]: "0xa2A7f256B4Ea653eef95965D09bbdBb4b4526419"
+    },
+    [SupportedChainId.OPTIMISM]: {
+      [ContractName.INTEREP]: "0xb64C152464B1d4fAE124C6544fad483858480f67"
     }
 }
 
@@ -74,6 +78,14 @@ export const supportedNetworks: Record<string, NetworkData> = {
     arbitrum: {
         name: "arbitrum",
         chainId: SupportedChainId.ARBITRUM
+    },
+    optimism: {
+      name: "optimism",
+      chainId: SupportedChainId.OPTIMISM
+    },
+    defaultNetwork: {
+      name: "optimism",
+      chainId: SupportedChainId.OPTIMISM
     }
 }
 
@@ -97,7 +109,7 @@ export const currentNetwork: NetworkData = (function IIFE(): NetworkData {
             return supportedNetworks[defaultNetwork]
         }
         default:
-            return supportedNetworks.localhost
+            return supportedNetworks.optimism
     }
 })()
 

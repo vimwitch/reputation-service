@@ -2073,15 +2073,19 @@
   dependencies:
     "@semaphore-protocol/identity" "2.0.0"
 
-"@interep/reputation@0.4.0", "@interep/reputation@^0.4.0":
-  version "0.4.0"
-  resolved "https://registry.yarnpkg.com/@interep/reputation/-/reputation-0.4.0.tgz#9bf9a6ece1428e05d24457ba8590d17977ce4808"
-  integrity sha512-tsswlUTX2Fh0+wzUxUT3qRdMTQtLkiwxmTAJzrWUqLxCaM/HzspbHWa8AE1fzkKZUNovzFThB9v4PLurO/gm+A==
-
 "@interep/reputation@^0.1.0":
   version "0.1.0"
   resolved "https://registry.yarnpkg.com/@interep/reputation/-/reputation-0.1.0.tgz#b771898537d375a9920950c81ff93e3c862174ec"
   integrity sha512-bSK8S1ZetMzYyirec57S1lDVRoaS6gysy5ZuSHqvuL9NGdjgSH4I/EWk9gsQ1RdnUOyqSzkULF3oomeDp3VY1w==
+
+"@interep/reputation@^0.4.0":
+  version "0.4.0"
+  resolved "https://registry.yarnpkg.com/@interep/reputation/-/reputation-0.4.0.tgz#9bf9a6ece1428e05d24457ba8590d17977ce4808"
+  integrity sha512-tsswlUTX2Fh0+wzUxUT3qRdMTQtLkiwxmTAJzrWUqLxCaM/HzspbHWa8AE1fzkKZUNovzFThB9v4PLurO/gm+A==
+
+"@interep/reputation@https://gitpkg.now.sh/vimwitch/interep.js/packages/reputation?661291c854b5ade5e9d01280da40322d99f606b5":
+  version "0.4.0"
+  resolved "https://gitpkg.now.sh/vimwitch/interep.js/packages/reputation?661291c854b5ade5e9d01280da40322d99f606b5#de99fa060719c89f4bca7b6f8e4b75b73b7f6f69"
 
 "@interep/telegram-bot@0.2.0":
   version "0.2.0"

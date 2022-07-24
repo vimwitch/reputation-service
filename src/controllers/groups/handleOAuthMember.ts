@@ -3,10 +3,10 @@ import { calculateReputation, OAuthProvider, ReputationLevel } from "@interep/re
 import { NextApiRequest, NextApiResponse } from "next"
 import { getSession } from "next-auth/client"
 import { appendLeaf } from "src/core/groups/mts"
-import { getBotometerScore } from "src/services/botometer"
+// import { getBotometerScore } from "src/services/botometer"
 import { getGithubUserByToken } from "src/services/github"
-import { getRedditUserByToken } from "src/services/reddit"
-import { getTwitterUserByToken } from "src/services/twitter"
+// import { getRedditUserByToken } from "src/services/reddit"
+// import { getTwitterUserByToken } from "src/services/twitter"
 import { GroupName } from "src/types/groups"
 import { logger } from "src/utils/backend"
 import { connectDatabase } from "src/utils/backend/database"
@@ -36,37 +36,37 @@ export default async function handleOAuthMemberController(req: NextApiRequest, r
 
                     break
                 }
-                case OAuthProvider.REDDIT: {
-                    const {
-                        id,
-                        has_subscribed_to_premium,
-                        total_karma,
-                        coins,
-                        linked_identities
-                    } = await getRedditUserByToken(token)
-
-                    providerAccountId = id
-                    reputation = calculateReputation(OAuthProvider.REDDIT, {
-                        premiumSubscription: has_subscribed_to_premium,
-                        karma: total_karma,
-                        coins,
-                        linkedIdentities: linked_identities.length
-                    })
-
-                    break
-                }
+                // case OAuthProvider.REDDIT: {
+                //     const {
+                //         id,
+                //         has_subscribed_to_premium,
+                //         total_karma,
+                //         coins,
+                //         linked_identities
+                //     } = await getRedditUserByToken(token)
+                //
+                //     providerAccountId = id
+                //     reputation = calculateReputation(OAuthProvider.REDDIT, {
+                //         premiumSubscription: has_subscribed_to_premium,
+                //         karma: total_karma,
+                //         coins,
+                //         linkedIdentities: linked_identities.length
+                //     })
+                //
+                //     break
+                // }
                 default: {
-                    const { id_str, screen_name, followers_count, verified } = await getTwitterUserByToken(token)
-                    const botometerResult = await getBotometerScore(screen_name)
-
-                    providerAccountId = id_str
-                    reputation = calculateReputation(OAuthProvider.TWITTER, {
-                        followers: followers_count,
-                        verifiedProfile: verified,
-                        botometerOverallScore: botometerResult?.display_scores?.universal?.overall
-                    })
-
-                    break
+                    // const { id_str, screen_name, followers_count, verified } = await getTwitterUserByToken(token)
+                    // const botometerResult = await getBotometerScore(screen_name)
+                    //
+                    // providerAccountId = id_str
+                    // reputation = calculateReputation(OAuthProvider.TWITTER, {
+                    //     followers: followers_count,
+                    //     verifiedProfile: verified,
+                    //     botometerOverallScore: botometerResult?.display_scores?.universal?.overall
+                    // })
+                    throw new Error('Invalid provider')
+                    // break
                 }
             }
 

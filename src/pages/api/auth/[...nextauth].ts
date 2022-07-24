@@ -4,28 +4,28 @@ import NextAuth, { Account, Session } from "next-auth"
 import { JWT } from "next-auth/jwt"
 import Providers from "next-auth/providers"
 import config from "src/config"
-import { createOAuthAccount, mapGithubProfile, mapRedditProfile, mapTwitterProfile } from "src/core/oauth"
+import { createOAuthAccount, mapGithubProfile, /*mapRedditProfile, mapTwitterProfile */} from "src/core/oauth"
 import { User } from "src/types/next-auth"
 import { logger } from "src/utils/backend"
 
 export default NextAuth({
     providers: [
-        Providers.Twitter({
-            clientId: config.TWITTER_CONSUMER_KEY || "",
-            clientSecret: config.TWITTER_CONSUMER_SECRET || "",
-            profile: mapTwitterProfile
-        }),
+        // Providers.Twitter({
+        //     clientId: config.TWITTER_CONSUMER_KEY || "",
+        //     clientSecret: config.TWITTER_CONSUMER_SECRET || "",
+        //     profile: mapTwitterProfile
+        // }),
         Providers.GitHub({
             clientId: config.GITHUB_CLIENT_ID || "",
             clientSecret: config.GITHUB_CLIENT_SECRET || "",
             profile: mapGithubProfile,
             scope: ["read:user"]
         }),
-        Providers.Reddit({
-            clientId: config.REDDIT_CLIENT_ID || "",
-            clientSecret: config.REDDIT_CLIENT_SECRET || "",
-            profile: mapRedditProfile
-        })
+        // Providers.Reddit({
+        //     clientId: config.REDDIT_CLIENT_ID || "",
+        //     clientSecret: config.REDDIT_CLIENT_SECRET || "",
+        //     profile: mapRedditProfile
+        // })
     ],
     pages: {
         signIn: "/"
