@@ -11,6 +11,7 @@ const defaultEnv = {
         /^https:\/\/goerli\.interep\.link/,
         /^https:\/\/auti\.sm/,
         /^https:\/\/interep\.unirep\.io/,
+        /^https:\/\/testnet\.interep\.unirep\.io/,
         /^https:\/\/www\.auti\.sm/,
         /^https:\/\/vercel\.app/,
         /^https:\/\/[A-Za-z0-9](?:[A-Za-z0-9-]{0,61}[A-Za-z0-9])?\.varcel\.app/
