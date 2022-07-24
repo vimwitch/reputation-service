@@ -57,7 +57,7 @@ export const contractAddresses: Record<SupportedChainId, Record<ContractName, an
         [ContractName.INTEREP]: "0xa2A7f256B4Ea653eef95965D09bbdBb4b4526419"
     },
     [SupportedChainId.OPTIMISM]: {
-      [ContractName.INTEREP]: "0x7336689C328Ca253FA93D7B1d682635338301233"
+      [ContractName.INTEREP]: "0x8d4fCA685f46E8579b8Ad968822b50D91f412052"
     }
 }
 
